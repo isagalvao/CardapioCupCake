@@ -37,7 +37,11 @@ namespace CardapioCupCake.Core.ViewModel
                 new Cupcake { Name = "Cupcake de Chocolate", Price = 8, Image = "baunilha" },
                 new Cupcake { Name = "Cupcake de Morango", Price = 9, Image = "baunilha" },
                 new Cupcake { Name = "Cupcake de Baunilha", Price = 7, Image = "baunilha" },
-                new Cupcake { Name = "Cupcake Red Velvet", Price = 10, Image = "baunilha" }
+                new Cupcake { Name = "Cupcake Red Velvet", Price = 10, Image = "baunilha" },
+                new Cupcake { Name = "Cupcake Red Velvet", Price = 10, Image = "baunilha" },
+                new Cupcake { Name = "Cupcake Red Velvet", Price = 10, Image = "baunilha" },
+                new Cupcake { Name = "Cupcake Red Velvet", Price = 10, Image = "baunilha" },
+                new Cupcake { Name = "Cupcake Red Velvet", Price = 10, Image = "baunilha" },
             };
         }
 
