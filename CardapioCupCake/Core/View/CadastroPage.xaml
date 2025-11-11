@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Shell.FlyoutBehavior="Disabled"
+                 Shell.NavBarIsVisible="False"
+             x:Class="CardapioCupCake.Core.View.CadastroPage">
+    <ContentPage.Background>
+        <LinearGradientBrush EndPoint="0,1">
+            <GradientStop Color="#ff5f6d" Offset="0.0" />
+            <GradientStop Color="#ffc371" Offset="1.0" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="10" Spacing="5" VerticalOptions="Center">
+            <Border StrokeShape="RoundRectangle 20"
+                BackgroundColor="White"
+                StrokeThickness="0"
+                Padding="30">
+                <VerticalStackLayout Spacing="15">
+
+                    <!-- Título -->
+                    <Label Text="Cadastro de Usuário"
+                       FontSize="20"
+                       TextColor="#ff5f6d"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center" />
+
+                    <!-- Seção: Dados Pessoais -->
+                    <Label Text="Dados pessoais"
+                           FontSize="14"
+                           TextColor="#ff5f6d"
+                           FontAttributes="Bold" />
+
+                    <!-- Nome -->
+                    <Border Stroke="#ddd"
+                            StrokeShape="RoundRectangle 25"
+                            BackgroundColor="White"
+                            Padding="5,5">
+                        <Entry Placeholder="Nome completo"
+                               Text="{Binding Nome}"
+                               TextColor="Black"
+                               PlaceholderColor="#ccc"
+                               Keyboard="Text" />
+                    </Border>
+
+                    <!-- E-mail -->
+                    <Border Stroke="#ddd"
+                            StrokeShape="RoundRectangle 25"
+                            BackgroundColor="White"
+                            Padding="5,5">
+                        <Entry Placeholder="E-mail"
+                               Text="{Binding Email}"
+                               TextColor="Black"
+                               PlaceholderColor="#ccc"
+                               Keyboard="Email" />
+                    </Border>
+
+                    <!-- Endereço -->
+                    <Border Stroke="#ddd"
+                        StrokeShape="RoundRectangle 25"
+                        BackgroundColor="White"
+                        Padding="5,5">
+                        <Entry Placeholder="Endereço"
+                               Text="{Binding Endereco}"
+                               TextColor="Black"
+                               PlaceholderColor="#ccc"
+                               Keyboard="Text" />
+                    </Border>
+
+                    <!-- Telefone -->
+                    <Border Stroke="#ddd"
+                            StrokeShape="RoundRectangle 25"
+                            BackgroundColor="White"
+                            Padding="5,5">
+                        <Entry Placeholder="Telefone"
+                               Text="{Binding Telefone}"
+                               PlaceholderColor="#ccc"
+                               TextColor="Black"
+                               Keyboard="Telephone" />
+                    </Border>
+
+                    <!-- Seção: Acesso -->
+                    <Label Text="Dados de acesso"
+                           FontSize="14"
+                           TextColor="#ff5f6d"
+                           FontAttributes="Bold" />
+
+                    <!-- Senha -->
+                    <Border Stroke="#ddd"
+                            StrokeShape="RoundRectangle 25"
+                            BackgroundColor="White"
+                            Padding="10,5">
+                        <Entry Placeholder="Senha"
+                               Text="{Binding Senha}"
+                               PlaceholderColor="#ccc"
+                               IsPassword="True" />
+                    </Border>
+
+                    <!-- Confirmar Senha -->
+                    <Border Stroke="#ddd"
+                            StrokeShape="RoundRectangle 25"
+                            BackgroundColor="White"
+                            Padding="10,5">
+                        <Entry Placeholder="Confirmar senha"
+                               Text="{Binding ConfirmarSenha}"
+                               PlaceholderColor="#ccc"
+                               IsPassword="True" />
+                    </Border>
+                    <!-- Mensagem -->
+                    <Label Text="{Binding Mensagem}"
+                           TextColor="DarkRed"
+                           FontSize="12"
+                           IsVisible="False"
+                           FontAttributes="Italic"
+                           HorizontalOptions="Center" />
+                    <!-- Botões -->
+                    <VerticalStackLayout Spacing="10" Margin="0,0,0,0">
+                        <Button Text="Cadastrar"
+                                TextColor="White"
+                                Command="{Binding CadastrarCommand}"
+                                BackgroundColor="#4CAF50"
+                                CornerRadius="25"
+                                HeightRequest="50"
+                                FontAttributes="Bold" />
+
+                        <Button Text="Voltar"
+                                BackgroundColor="Transparent"
+                                TextColor="#aaa"
+                                BorderColor="#aaa"
+                                BorderWidth="1"
+                                Clicked="Button_Clicked"
+                                CornerRadius="25"
+                                HeightRequest="50"
+                                FontAttributes="Bold" />
+                    </VerticalStackLayout>
+                </VerticalStackLayout>
+            </Border>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

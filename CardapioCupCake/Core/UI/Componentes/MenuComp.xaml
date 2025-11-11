@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Grid xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CardapioCupCake.Core.UI.Componentes.MenuComp" >
+    <Grid BackgroundColor="WhiteSmoke" HeightRequest="65" Padding="0, 5" ColumnDefinitions="*, *, *, *">
+
+        <VerticalStackLayout Grid.Column="0" Spacing="2" HorizontalOptions="Center" VerticalOptions="Center">
+            <Image
+             Source="home" 
+             HeightRequest="25"
+             WidthRequest="25"
+             BackgroundColor="Transparent" />
+            <Label Text="Início" FontSize="10" TextColor="#E91E63" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center"/>
+        </VerticalStackLayout>
+
+        <VerticalStackLayout Grid.Column="1" Spacing="2" HorizontalOptions="Center" VerticalOptions="Center">
+            <Image
+             Source="search"
+             HeightRequest="25"
+             WidthRequest="25"
+             BackgroundColor="Transparent"/>
+            <Label Text="Busca" FontSize="10" TextColor="Gray"   FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center" />
+        </VerticalStackLayout>
+
+        <Grid Grid.Column="2" HorizontalOptions="Center" VerticalOptions="Center">
+            <VerticalStackLayout Spacing="2">
+                <Image
+                 Source="shopping"
+                 WidthRequest="25"
+                 HeightRequest="25" />
+                <Label Text="Pedidos" FontSize="10" TextColor="Gray"  FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center"/>
+            </VerticalStackLayout>
+        </Grid>
+
+        <Grid Grid.Column="3" HorizontalOptions="Center" VerticalOptions="Center">
+            <VerticalStackLayout Spacing="2">
+                <Image
+                 Source="person"
+                 HeightRequest="25"
+                 WidthRequest="25"
+                 BackgroundColor="Transparent" />
+                <Label Text="Perfil" FontSize="10" TextColor="Gray"  FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center" />
+            </VerticalStackLayout>
+
+            <Border
+                     StrokeShape="RoundRectangle 8"
+                     BackgroundColor="#E91E63"
+                     WidthRequest="8"
+                     HeightRequest="8"
+                     HorizontalOptions="End"
+                     VerticalOptions="Start"
+                     TranslationX="15"
+                     TranslationY="-3"
+                     IsVisible="False" />
+        </Grid>
+    </Grid>
+</Grid>

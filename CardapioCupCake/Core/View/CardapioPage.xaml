@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CardapioCupCake.Core.View.CardapioPage"
+             xmlns:controles="clr-namespace:CardapioCupCake.Core.UI.Componentes"
+             Title="CardapioPage">
+    <Grid RowDefinitions="Auto, *">
+        <VerticalStackLayout Grid.Row="0">
+            <Label Text="Endereço" VerticalOptions="Start" HorizontalOptions="Center" FontSize="16"  TextColor="Black" ></Label>
+            <HorizontalStackLayout  HorizontalOptions="Start">
+                <Label Text="Olá,"  FontSize="16" FontAttributes="Bold" Margin="0,0,0,10" TextColor="Gray" ></Label>
+                <Label Text="Fulado De tal"  FontSize="16" FontAttributes="Bold" TextColor="Gray" ></Label>
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+        <CollectionView Grid.Row="1"
+                     ItemsSource="{Binding Cupcakes}"
+                     SelectionMode="None"
+                     Margin="15">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical" Span="2" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border StrokeShape="RoundRectangle 15"
+                         BackgroundColor="WhiteSmoke"
+                         StrokeThickness="1"
+                         Stroke="#F0F0F0" Margin="5"
+                         Padding="10">
+                        <VerticalStackLayout>
+                            <Image Source="{Binding Image}" HeightRequest="100" Aspect="AspectFill" />
+                            <Label Text="{Binding Name}" FontSize="12" FontAttributes="Bold" TextColor="Gray" HorizontalOptions="Center" />
+                            <Label Text="{Binding Price, StringFormat='R$ {0:F2}'}" TextColor="#E91E63" HorizontalOptions="Center" />
+                        </VerticalStackLayout>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <controles:MenuComp VerticalOptions="End"  Grid.Row="1" />
+    </Grid>
+</ContentPage>

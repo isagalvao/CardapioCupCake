@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CardapioCupCake.MainPage">
+    <ContentPage.Background>
+        <LinearGradientBrush EndPoint="0,1">
+            <GradientStop Color="#ff5f6d" Offset="0.0" />
+            <GradientStop Color="#ffc371" Offset="1.0" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="15" Spacing="10" VerticalOptions="Start">
+            <!-- Logo -->
+            <Image Source="logo_cupcake" HeightRequest="200" HorizontalOptions="Center" />
+            <!-- Container Branco (usando Border) -->
+            <Border StrokeShape="RoundRectangle 20"
+                    BackgroundColor="White"
+                    StrokeThickness="0"
+                    Margin="0,20,0,0">
+                <VerticalStackLayout Padding="30" Spacing="15">
+                    <Label Text="USERNAME" FontSize="12" TextColor="#999" />
+                    <Entry Placeholder="ex: anneb@gmail.com"
+                           Keyboard="Email"
+                           TextColor="Black"
+                           PlaceholderColor="#ccc"
+                           x:Name="UsernameEntry" />
+
+                    <Label Text="PASSWORD" FontSize="12" TextColor="#999" />
+                    <Entry Placeholder="********"
+                           IsPassword="True"
+                           TextColor="Black"
+                           PlaceholderColor="#ccc"
+                           x:Name="PasswordEntry" />
+
+                    <Label Text="Não tem cadastro?"
+                           FontSize="12"
+                           HorizontalOptions="End"
+                           TextColor="#ff5f6d"
+                           FontAttributes="Bold">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnCadastroClicked" />
+                        </Label.GestureRecognizers>
+                    </Label>
+
+                    <Button Text="LOGIN"
+                            TextColor="White"
+                            BackgroundColor="#ff5f6d"
+                            CornerRadius="25"
+                            HeightRequest="50"
+                            FontAttributes="Bold" />
+                </VerticalStackLayout>
+            </Border>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
