@@ -1,6 +1,19 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <color name="colorPrimary">#512BD4</color>
-    <color name="colorPrimaryDark">#2B0B98</color>
-    <color name="colorAccent">#2B0B98</color>
+<?xml version="1.0" encoding="utf-8" ?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+	<!-- Tema principal do app -->
+	<style name="Maui.MainTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+		<item name="colorPrimary">@color/colorPrimary</item>
+		<item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+		<item name="colorAccent">@color/colorAccent</item>
+		<!-- Personalizações adicionais -->
+		<item name="android:statusBarColor">@color/colorPrimaryDark</item>
+		<item name="android:navigationBarColor">@color/colorPrimaryDark</item>
+	</style>
+
+	<!-- Tema da tela de splash -->
+	<style name="Maui.SplashTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+		<item name="android:windowBackground">@drawable/maui_splash_image</item>
+	</style>
+
 </resources>
