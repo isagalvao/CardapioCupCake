@@ -18,7 +18,7 @@ namespace CardapioCupCake.Core.ViewModel
             set => SetProperty(ref _cartCount, value);
         }
 
-        public ObservableCollection<Cupcake> Cupcakes { get; set; }
+        public ObservableCollection<CupcakeModel> Cupcakes { get; set; }
 
         public ICommand OpenMenuCommand { get; }
         public ICommand OpenCartCommand { get; }
@@ -29,19 +29,19 @@ namespace CardapioCupCake.Core.ViewModel
             // Comandos
             OpenMenuCommand = new Command(OpenMenu);
             OpenCartCommand = new Command(OpenCart);
-            AddToCartCommand = new Command<Cupcake>(AddToCart);
+            AddToCartCommand = new Command<CupcakeModel>(AddToCart);
 
             // Lista de cupcakes
-            Cupcakes = new ObservableCollection<Cupcake>
+            Cupcakes = new ObservableCollection<CupcakeModel>
             {
-                new Cupcake { Name = "Cupcake de Chocolate", Price = 8, Image = "baunilha" },
-                new Cupcake { Name = "Cupcake de Morango", Price = 9, Image = "baunilha" },
-                new Cupcake { Name = "Cupcake de Baunilha", Price = 7, Image = "baunilha" },
-                new Cupcake { Name = "Cupcake Red Velvet", Price = 10, Image = "baunilha" },
-                new Cupcake { Name = "Cupcake Red Velvet", Price = 10, Image = "baunilha" },
-                new Cupcake { Name = "Cupcake Red Velvet", Price = 10, Image = "baunilha" },
-                new Cupcake { Name = "Cupcake Red Velvet", Price = 10, Image = "baunilha" },
-                new Cupcake { Name = "Cupcake Red Velvet", Price = 10, Image = "baunilha" },
+                new CupcakeModel { Name = "Cupcake de Chocolate", Price = 8, Image = "baunilha" },
+                new CupcakeModel { Name = "Cupcake de Morango", Price = 9, Image = "baunilha" },
+                new CupcakeModel { Name = "Cupcake de Baunilha", Price = 7, Image = "baunilha" },
+                new CupcakeModel { Name = "Cupcake Red Velvet", Price = 10, Image = "baunilha" },
+                new CupcakeModel { Name = "Cupcake Red Velvet", Price = 10, Image = "baunilha" },
+                new CupcakeModel { Name = "Cupcake Red Velvet", Price = 10, Image = "baunilha" },
+                new CupcakeModel { Name = "Cupcake Red Velvet", Price = 10, Image = "baunilha" },
+                new CupcakeModel { Name = "Cupcake Red Velvet", Price = 10, Image = "baunilha" },
             };
         }
 
@@ -55,7 +55,7 @@ namespace CardapioCupCake.Core.ViewModel
             Application.Current.MainPage.DisplayAlert("Carrinho", $"Você tem {CartCount} itens no carrinho", "OK");
         }
 
-        private void AddToCart(Cupcake cupcake)
+        private void AddToCart(CupcakeModel cupcake)
         {
             CartCount++;
             Application.Current.MainPage.DisplayAlert("Carrinho", $"{cupcake.Name} adicionado ao carrinho!", "OK");

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             BackgroundColor="WhiteSmoke"
+             x:Class="CardapioCupCake.Core.View.CarrinhoPage">
+    <ContentPage.Resources>
+        <Style x:Key="CardBorderStyle" TargetType="Border">
+            <Setter Property="Padding" Value="15"/>
+            <Setter Property="StrokeShape">
+                <Setter.Value>
+                    <RoundRectangle CornerRadius="10"/>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Stroke" Value="#EEEEEE"/>
+            <Setter Property="StrokeThickness" Value="1"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Shadow">
+                <Setter.Value>
+                    <Shadow Brush="Black" Opacity="0.1" Radius="5" Offset="0, 3"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </ContentPage.Resources>
+
+    <Grid RowDefinitions="*, Auto" RowSpacing="10">
+        <ScrollView Grid.Row="0" Padding="15">
+            <VerticalStackLayout Spacing="20">
+
+                <Border Style="{StaticResource CardBorderStyle}">
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="Resumo do Pedido" FontSize="Medium" FontAttributes="Bold" TextColor="#D81B60"/>
+
+                        <CollectionView ItemsSource="{Binding Items}" Margin="0, 5, 0, 10">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid ColumnDefinitions="*, Auto" Padding="0, 3">
+                                        <Label Grid.Column="0" Text="{Binding DisplayName}" TextColor="Black"/>
+                                        <Label Grid.Column="1" Text="{Binding DisplayTotal}" FontAttributes="Bold" TextColor="Black"/>
+                                    </Grid>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+
+                        <BoxView HeightRequest="1" Color="#EEEEEE"/>
+                        <Grid ColumnDefinitions="*, Auto">
+                            <Label Grid.Column="0" Text="Subtotal" TextColor="Gray"/>
+                            <Label Grid.Column="1" Text="{Binding DisplaySubtotal}" TextColor="Gray"/>
+                        </Grid>
+                        <Grid ColumnDefinitions="*, Auto">
+                            <Label Grid.Column="0" Text="Taxa de Entrega" TextColor="Gray"/>
+                            <Label Grid.Column="1" Text="{Binding DisplayDeliveryFee}" TextColor="Gray"/>
+                        </Grid>
+                    </VerticalStackLayout>
+                </Border>
+
+                <Border Style="{StaticResource CardBorderStyle}">
+                    <VerticalStackLayout Spacing="10">
+                        <Grid ColumnDefinitions="*, Auto">
+                            <Label Grid.Column="0" Text="Entrega" FontSize="Medium" FontAttributes="Bold" TextColor="#D81B60"/>
+                            <Button Grid.Column="1" Text="Mudar" BackgroundColor="Transparent" TextColor="#D81B60" FontSize="Small" Padding="0" HeightRequest="30"/>
+                        </Grid>
+                        <Label Text="{Binding CustomerInfo.Endereco}" TextColor="Black"/>
+                        <Label Text="{Binding CustomerInfo.Telefone, StringFormat='Tel: {0}'}" TextColor="Gray" FontSize="Small"/>
+                    </VerticalStackLayout>
+                </Border>
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <Border Grid.Row="1" BackgroundColor="White" StrokeThickness="0" Padding="15, 10">
+            <Grid ColumnDefinitions="*, Auto" VerticalOptions="Center">
+                <VerticalStackLayout Grid.Column="0" Spacing="0">
+                    <Label Text="Total a Pagar" TextColor="Gray" FontSize="Small"/>
+                    <Label Text="{Binding DisplayTotalPrice}" FontSize="Large" FontAttributes="Bold" TextColor="#D81B60"/>
+                </VerticalStackLayout>
+                <Button Grid.Column="1" 
+                        Text="FINALIZAR PEDIDO" 
+                        Command="{Binding FinalizeOrderCommand}"
+                        BackgroundColor="#D81B60" 
+                        TextColor="White" 
+                        CornerRadius="25" 
+                        Padding="30, 10" 
+                        WidthRequest="220"
+                        HeightRequest="50"/>
+            </Grid>
+        </Border>
+    </Grid>
+</ContentPage>

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CardapioCupCake.Core.Models
 {
-    public class Cupcake
+    public class CupcakeModel
     {
         public string Name { get; set; }
         public double Price { get; set; }
