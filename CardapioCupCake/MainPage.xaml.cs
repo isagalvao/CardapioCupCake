@@ -15,5 +15,10 @@ namespace CardapioCupCake
         {
             await Shell.Current.CurrentPage.Navigation.PushAsync(new CadastroPage(new CadastroViewModel()));
         }
+
+        private async void Button_Clicked(object sender, EventArgs e)
+        {
+            await Shell.Current.CurrentPage.Navigation.PushAsync(new CardapioPage(new CardapioViewModel()));
+        }
     }
 }

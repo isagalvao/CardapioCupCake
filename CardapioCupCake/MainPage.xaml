@@ -47,6 +47,7 @@
                             TextColor="White"
                             BackgroundColor="#ff5f6d"
                             CornerRadius="25"
+                            Clicked="Button_Clicked"
                             HeightRequest="50"
                             FontAttributes="Bold" />
                 </VerticalStackLayout>
