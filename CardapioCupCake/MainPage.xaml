@@ -19,20 +19,19 @@
                     StrokeThickness="0"
                     Margin="0,20,0,0">
                 <VerticalStackLayout Padding="30" Spacing="15">
-                    <Label Text="USERNAME" FontSize="12" TextColor="#999" />
+                    <Label Text="EMAIL" FontSize="12" TextColor="#999" />
                     <Entry Placeholder="ex: anneb@gmail.com"
                            Keyboard="Email"
                            TextColor="Black"
                            PlaceholderColor="#ccc"
                            x:Name="UsernameEntry" />
 
-                    <Label Text="PASSWORD" FontSize="12" TextColor="#999" />
+                    <Label Text="SENHA" FontSize="12" TextColor="#999" />
                     <Entry Placeholder="********"
                            IsPassword="True"
                            TextColor="Black"
                            PlaceholderColor="#ccc"
                            x:Name="PasswordEntry" />
-
                     <Label Text="Não tem cadastro?"
                            FontSize="12"
                            HorizontalOptions="End"
@@ -50,6 +49,9 @@
                             Clicked="Button_Clicked"
                             HeightRequest="50"
                             FontAttributes="Bold" />
+                    <ActivityIndicator IsRunning="{Binding IsBusy}"
+                                       IsVisible="{Binding IsBusy}"
+                                       Color="{StaticResource Primary}"/>
                 </VerticalStackLayout>
             </Border>
         </VerticalStackLayout>

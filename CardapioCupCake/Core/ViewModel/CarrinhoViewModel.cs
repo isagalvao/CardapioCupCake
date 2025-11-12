@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace CardapioCupCake.Core.ViewModel
 {
-    public partial class CarrinhoViewModel : ObservableObject
+    public partial class CarrinhoViewModel : BaseViewModel
     {
         [ObservableProperty]
         private ObservableCollection<CupcakeModel> items = new ObservableCollection<CupcakeModel>();

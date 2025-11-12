@@ -1,4 +1,7 @@
 ﻿using CardapioCupCake.Core.Models;
+using CardapioCupCake.Core.View;
+using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -9,25 +12,66 @@ using System.Windows.Input;
 
 namespace CardapioCupCake.Core.ViewModel
 {
-    public class MainViewModel : BaseViewModel
+    public partial class MainViewModel : BaseViewModel
     {
-        public string Email { get; set; }
-        public string Password { get; set; }
+        private readonly HubService _hubService;
 
-        public Command LoginCommand { get; }
+        [ObservableProperty]
+        private string email;
+
+        [ObservableProperty]
+        private string senha;
+
+        [ObservableProperty]
+        private string mensagemErro;
+
+        [ObservableProperty]
+        private bool isBusy;
+
+        [ObservableProperty]
+        private string errorMessage;
+        public IAsyncRelayCommand LoginCommand { get; }
 
         public MainViewModel()
         {
-            LoginCommand = new Command(OnLoginClicked);
+            _hubService = new HubService();
+            LoginCommand = new AsyncRelayCommand(OnLoginClicked);
         }
 
-        private async void OnLoginClicked()
+        private async Task OnLoginClicked()
         {
-            if (Email == "anneb@gmail.com" && Password == "1234")
-                await Shell.Current.DisplayAlert("Login", "Login realizado com sucesso!", "OK");
-            else
-                await Shell.Current.DisplayAlert("Erro", "Usuário ou senha inválidos.", "OK");
+            IsBusy = true;
+            if (string.IsNullOrWhiteSpace(Email) || string.IsNullOrWhiteSpace(senha))
+            {
+                await Shell.Current.DisplayAlert("Aviso!", "Por favor, preencha o e-mail e a senha.", "OK");
+                IsBusy = false;
+                return;
+            }
+
+            try
+            {
+                var sucesso = await _hubService.LoginAsync(Email, Senha);
+                //if (sucesso)
+                //{
+                if (Email == "admin@teste.com" && senha == "123456")
+                {
+                    await Shell.Current.CurrentPage.Navigation.PushAsync(new CardapioPage(new CardapioViewModel()));
+                }
+                else
+                {
+                    await Shell.Current.DisplayAlert("Aviso!", "E-mail ou senha inválidos. Tente novamente.", "OK");
+                }
+            }
+            catch (Exception ex)
+            {
+                await Shell.Current.DisplayAlert("Aviso!", $"Ocorreu um erro: {ex.Message}", "OK");
+            }
+            finally
+            {
+                IsBusy = false; // Esconde o carregamento
+            }
+
+            IsBusy = false;
         }
-        
     }
 }
