@@ -2,6 +2,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              BackgroundColor="WhiteSmoke"
+             xmlns:controles="clr-namespace:CardapioCupCake.Core.UI.Componentes"
+             Shell.NavBarIsVisible="False"
              x:Class="CardapioCupCake.Core.View.CarrinhoPage">
     <ContentPage.Resources>
         <Style x:Key="CardBorderStyle" TargetType="Border">
@@ -22,7 +24,7 @@
         </Style>
     </ContentPage.Resources>
 
-    <Grid RowDefinitions="*, Auto" RowSpacing="10">
+    <Grid RowDefinitions="*, Auto,auto" RowSpacing="10">
         <ScrollView Grid.Row="0" Padding="15">
             <VerticalStackLayout Spacing="20">
 
@@ -84,5 +86,8 @@
                         HeightRequest="50"/>
             </Grid>
         </Border>
+        <controles:MenuComp Grid.Row="2"
+                VerticalOptions="End"
+                Margin="0,0,0,0"/>
     </Grid>
 </ContentPage>
