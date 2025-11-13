@@ -43,6 +43,7 @@ EntryHandler.Mapper.AppendToMapping("ChangeUnderlineColor", (handler, view) =>
             builder.Services.AddTransientWithShellRoute<CardapioPage, CardapioViewModel>(nameof(CardapioPage));
             builder.Services.AddTransientWithShellRoute<CadastroPage, CadastroViewModel>(nameof(CadastroPage));
             builder.Services.AddTransientWithShellRoute<CarrinhoPage, CarrinhoViewModel>(nameof(CarrinhoPage));
+            builder.Services.AddTransientWithShellRoute<ProfilePage, ProfileViewModel>(nameof(ProfilePage));
 
             return builder.Build();
         }

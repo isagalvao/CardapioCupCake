@@ -20,6 +20,6 @@ public partial class MenuComp : Grid
 
     private async void OnpersonTapped(object sender, TappedEventArgs e)
     {
-        await Shell.Current.CurrentPage.Navigation.PushAsync(new CardapioPage(new CardapioViewModel()));
+        await Shell.Current.CurrentPage.Navigation.PushAsync(new ProfilePage(new ProfileViewModel()));
     }
 }
