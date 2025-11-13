@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              Shell.FlyoutBehavior="Disabled"
-                 Shell.NavBarIsVisible="False"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             Shell.NavBarIsVisible="False"
              x:Class="CardapioCupCake.Core.View.CadastroPage">
     <ContentPage.Background>
         <LinearGradientBrush EndPoint="0,1">
@@ -53,7 +54,15 @@
                                Text="{Binding Email}"
                                TextColor="Black"
                                PlaceholderColor="#ccc"
-                               Keyboard="Email" />
+                               Keyboard="Email">
+                            <Entry.Behaviors>
+                                <toolkit:TextValidationBehavior 
+                                                                x:Name="EmailValidator"
+                                                                RegexPattern="^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$" 
+                                                                IsValid="{Binding IsEmailValid, Mode=OneWayToSource}"
+                                                                InvalidStyle="{StaticResource InvalidEntryStyle}" />
+                            </Entry.Behaviors>
+                        </Entry>
                     </Border>
 
                     <!-- Endereço -->
@@ -67,19 +76,21 @@
                                PlaceholderColor="#ccc"
                                Keyboard="Text" />
                     </Border>
-
-                    <!-- Telefone -->
                     <Border Stroke="#ddd"
                             StrokeShape="RoundRectangle 25"
                             BackgroundColor="White"
                             Padding="5,5">
-                        <Entry Placeholder="Telefone"
-                               Text="{Binding Telefone}"
-                               PlaceholderColor="#ccc"
-                               TextColor="Black"
-                               Keyboard="Telephone" />
+                        <!-- Telefone -->
+                        <Entry Placeholder="Telefone (DDD + Número)"
+                           Text="{Binding Telefone}"
+                           PlaceholderColor="#ccc"
+                           TextColor="Black"
+                           Keyboard="Telephone">
+                            <Entry.Behaviors>
+                                <toolkit:MaskedBehavior Mask="(XX) XXXXX-XXXX" />
+                            </Entry.Behaviors>
+                        </Entry>
                     </Border>
-
                     <!-- Seção: Acesso -->
                     <Label Text="Dados de acesso"
                            FontSize="14"
@@ -94,6 +105,7 @@
                         <Entry Placeholder="Senha"
                                Text="{Binding Senha}"
                                PlaceholderColor="#ccc"
+                               TextColor="Black"
                                IsPassword="True" />
                     </Border>
 
@@ -105,13 +117,14 @@
                         <Entry Placeholder="Confirmar senha"
                                Text="{Binding ConfirmarSenha}"
                                PlaceholderColor="#ccc"
+                               TextColor="Black"
                                IsPassword="True" />
                     </Border>
                     <!-- Mensagem -->
                     <Label Text="{Binding Mensagem}"
-                           TextColor="DarkRed"
+                           TextColor="Red"
                            FontSize="12"
-                           IsVisible="False"
+                           IsVisible="{Binding IsMensagemVisible}"
                            FontAttributes="Italic"
                            HorizontalOptions="Center" />
                     <!-- Botões -->

@@ -1,4 +1,5 @@
 ﻿using CardapioCupCake.Core.Models;
+using CardapioCupCake.Core.Service;
 using CardapioCupCake.Core.View;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
@@ -41,7 +42,7 @@ namespace CardapioCupCake.Core.ViewModel
         private async Task OnLoginClicked()
         {
             IsBusy = true;
-            if (string.IsNullOrWhiteSpace(Email) || string.IsNullOrWhiteSpace(senha))
+            if (string.IsNullOrWhiteSpace(Email) || string.IsNullOrWhiteSpace(Senha))
             {
                 await Shell.Current.DisplayAlert("Aviso!", "Por favor, preencha o e-mail e a senha.", "OK");
                 IsBusy = false;
@@ -50,7 +51,7 @@ namespace CardapioCupCake.Core.ViewModel
 
             try
             {
-                var sucesso = await _hubService.LoginAsync(Email, Senha);
+                //var sucesso = await _hubService.LoginAsync(Email, Senha);
                 //if (sucesso)
                 //{
                 if (Email == "admin@teste.com" && senha == "123456")

@@ -1,11 +1,12 @@
-﻿using System;
+﻿using CardapioCupCake.Core.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace CardapioCupCake.Core
+namespace CardapioCupCake.Core.Service
 {
     public class HubService
     {
@@ -39,6 +40,33 @@ namespace CardapioCupCake.Core
             }
 
             return false;
+        }
+
+        public async Task<bool> PostNovoCadastroAsync(CadastroModel usuario)
+        {
+            var json = JsonSerializer.Serialize(usuario);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            try
+            {
+                string endpoint = "api/usuarios";
+
+                var response = await _httpClient.PostAsync(endpoint, content);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Erro na requisição de cadastro: {ex.Message}");
+                throw;
+            }
         }
     }
 }

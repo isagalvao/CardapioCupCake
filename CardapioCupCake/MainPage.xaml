@@ -22,6 +22,7 @@
                     <Label Text="EMAIL" FontSize="12" TextColor="#999" />
                     <Entry Placeholder="ex: anneb@gmail.com"
                            Keyboard="Email"
+                           Text="{Binding Email}"
                            TextColor="Black"
                            PlaceholderColor="#ccc"
                            x:Name="UsernameEntry" />
@@ -29,6 +30,7 @@
                     <Label Text="SENHA" FontSize="12" TextColor="#999" />
                     <Entry Placeholder="********"
                            IsPassword="True"
+                           Text="{Binding Senha}"
                            TextColor="Black"
                            PlaceholderColor="#ccc"
                            x:Name="PasswordEntry" />
@@ -46,7 +48,7 @@
                             TextColor="White"
                             BackgroundColor="#ff5f6d"
                             CornerRadius="25"
-                            Clicked="Button_Clicked"
+                            Command="{Binding LoginCommand}"
                             HeightRequest="50"
                             FontAttributes="Bold" />
                     <ActivityIndicator IsRunning="{Binding IsBusy}"
