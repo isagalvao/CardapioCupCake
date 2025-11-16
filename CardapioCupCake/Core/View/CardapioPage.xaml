@@ -39,9 +39,13 @@
         </VerticalStackLayout>
 
         <CollectionView Grid.Row="1"
+                         x:Name="CupCakeCollection"
                     BackgroundColor="Transparent"
                     ItemsSource="{Binding Cupcakes}"
-                    SelectionMode="None"
+                    SelectedItem="{Binding SelectedItem}"
+                    SelectionChangedCommand="{Binding EditCupCakeCommand}" 
+                    SelectionChangedCommandParameter="{Binding SelectedItem, Mode=TwoWay, Source={x:Reference CupCakeCollection}}"
+                    SelectionMode="Single"
                     Margin="10,20,10,0">
 
             <CollectionView.ItemsLayout>

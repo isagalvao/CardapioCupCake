@@ -50,18 +50,11 @@
                             StrokeShape="RoundRectangle 25"
                             BackgroundColor="White"
                             Padding="5,5">
-                        <Entry Placeholder="E-mail"
-                               Text="{Binding Email}"
+                        <Entry Text="{Binding Email}"
                                TextColor="Black"
+                               Placeholder="seunome@email.com"
                                PlaceholderColor="#ccc"
                                Keyboard="Email">
-                            <Entry.Behaviors>
-                                <toolkit:TextValidationBehavior 
-                                                                x:Name="EmailValidator"
-                                                                RegexPattern="^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$" 
-                                                                IsValid="{Binding IsEmailValid, Mode=OneWayToSource}"
-                                                                InvalidStyle="{StaticResource InvalidEntryStyle}" />
-                            </Entry.Behaviors>
                         </Entry>
                     </Border>
 
