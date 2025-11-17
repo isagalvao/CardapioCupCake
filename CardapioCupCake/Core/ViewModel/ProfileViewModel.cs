@@ -1,4 +1,6 @@
 ﻿using CardapioCupCake.Core.Models;
+using CardapioCupCake.Core.Service;
+using CardapioCupCake.Core.View;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Microsoft.Maui.Media;
@@ -12,27 +14,21 @@ namespace CardapioCupCake.Core.ViewModel
 {
     public partial class ProfileViewModel : ObservableObject
     {
-        // Propriedade para guardar os dados do usuário, que será ligada na View
+        ListCupCakeRepository listCupCakeRepository;
+
         [ObservableProperty]
         private CadastroModel userProfile;
 
-        // Propriedade para controlar se os campos estão habilitados para edição
         [ObservableProperty]
         private bool isEditing = false;
 
-        // Propriedade para a imagem do perfil (URL ou caminho local)
         [ObservableProperty]
-        private string profileImageUrl = "default_profile.png";
+        private string profileImageUrl = "perfil.png";
 
         public ProfileViewModel(CadastroModel initialProfile)
         {
             UserProfile = initialProfile;
-
-            // Simular uma imagem salva (se tiver)
-            // if (!string.IsNullOrEmpty(initialProfile.ProfileImage))
-            // {
-            //      ProfileImageUrl = initialProfile.ProfileImage;
-            // }
+            listCupCakeRepository = listCupCakeRepository;
         }
 
         // Construtor sem parâmetros para Design Time
@@ -45,32 +41,25 @@ namespace CardapioCupCake.Core.ViewModel
             Senha = "senhaficticia"
         })
         { }
+        public async void LoadUser(int Id)
+        {
+            //UserProfile = listCupCakeRepository.GetById(Id).Clone();
 
-
-        // --- COMMANDS ---
+            //OnPropertyChanged(nameof(User));
+        }
 
         [RelayCommand]
-        private void ToggleEdit()
+        public async Task Update()
         {
-            // Inverte o estado de edição
-            IsEditing = !IsEditing;
 
-            if (!IsEditing)
+            if (await listCupCakeRepository.ValidateUserAsync(UserProfile))
             {
-                // Se saiu do modo de edição, tentamos salvar (ou confirmar)
-                // Aqui você chamaria o serviço de API para salvar UserProfile
-                SaveProfileChanges();
+                listCupCakeRepository.UpdateUser(UserProfile);
+                await Shell.Current.DisplayAlert("Sucesso!", "Perfil atualizado com sucesso.", "OK");
+                await Shell.Current.CurrentPage.Navigation.PushAsync(new CardapioPage(new CardapioViewModel()));
             }
         }
 
-        private void SaveProfileChanges()
-        {
-            // Lógica real de salvamento (Ex: Chamar API)
-            // Exemplo: _userService.UpdateProfile(UserProfile);
-
-            // Apenas para feedback visual
-            Application.Current.MainPage.DisplayAlert("Sucesso", "Perfil atualizado com sucesso!", "OK");
-        }
 
         [RelayCommand]
         private async Task SelectPhoto()

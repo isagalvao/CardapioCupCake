@@ -9,7 +9,8 @@
                 <Border Stroke="#FFC8DD"                           
                         StrokeThickness="2"                          
                         Padding="0" 
-                        HeightRequest="300" 
+                        HeightRequest="220" 
+                        WidthRequest="150"
                         HorizontalOptions="FillAndExpand">
                     <Border.StrokeShape>
                         <RoundRectangle CornerRadius="10"/>
@@ -23,7 +24,7 @@
 
                     <Image x:Name="CupcakeImage" 
                            Source="{Binding Cupcake.Image}"                   
-                           Aspect="AspectFill" />
+                           Aspect="Fill" />
 
                 </Border>
 
@@ -58,7 +59,7 @@
 
                 <HorizontalStackLayout Spacing="15" VerticalOptions="Center">
 
-                    <Button Text="-" 
+                    <Button ImageSource="menos.png"
                             HorizontalOptions="Center"
                             VerticalOptions="Center"
                             WidthRequest="40" 
@@ -78,7 +79,7 @@
                            HorizontalTextAlignment="Center"
                            TextColor="#333333" />
 
-                    <Button Text="+" 
+                    <Button ImageSource="mais.png"
                             WidthRequest="40" 
                             HeightRequest="40" 
                             CornerRadius="20"
