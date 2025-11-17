@@ -11,16 +11,18 @@ Organizado com arquitetura **MVVM**, perfeito para evolução.
 ## 📸 Screenshots 
 
 ### Tela de Login
-![Tela Login](assets/screenshots/home.png)
+![Tela Login]![login](https://github.com/user-attachments/assets/6870908a-523e-4159-8c89-045e3519d284)
+
 
 ### Tela de Cadastro
-![Tela de Cadastro](assets/screenshots/home.png)
+![Tela de Cadastro]![cadastro](https://github.com/user-attachments/assets/bd4859ef-612a-418f-845b-12f1e2c8df47)
+
 
 ### Tela Inicial / Lista de Cupcakes
-![Tela Inicial](assets/screenshots/home.png)
+![Tela Inicial]![lista](https://github.com/user-attachments/assets/d3be1fd8-bb73-4ded-88d1-25b2f9d672c5)
 
 ### Detalhes do Cupcake
-![Detalhes](assets/screenshots/detail.png)
+![Detalhes]![detalhes](https://github.com/user-attachments/assets/ca7450d8-a6a6-4483-b39b-6d0bc7d483a1)
 
 ### Carrinho
 ![Carrinho](assets/screenshots/cart.png)
