@@ -112,7 +112,7 @@ namespace CardapioCupCake.Core.ViewModel
         {
             if (Cupcake != null && Quantity > 0)
             {
-                cupcakeRepository.AddCupcakes(Cupcake);
+                cupcakeRepository.AddCupcakesCarrinho(Cupcake);
                 await Shell.Current.DisplayAlert("Adicionado!",
                     $"{Quantity} x {Cupcake.Name} adicionado(s) ao carrinho.",
                     "OK");

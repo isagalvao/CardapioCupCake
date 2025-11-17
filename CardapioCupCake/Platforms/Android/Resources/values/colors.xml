@@ -6,14 +6,28 @@
 		<item name="colorPrimary">@color/colorPrimary</item>
 		<item name="colorPrimaryDark">@color/colorPrimaryDark</item>
 		<item name="colorAccent">@color/colorAccent</item>
-		<!-- Personalizações adicionais -->
+
 		<item name="android:statusBarColor">@color/colorPrimaryDark</item>
 		<item name="android:navigationBarColor">@color/colorPrimaryDark</item>
+
+		<!-- OBRIGATÓRIO → Corrige o erro de TextAppearance -->
+		<item name="textAppearanceBody1">@style/TextAppearance.App.Body1</item>
+		<item name="textAppearanceBody2">@style/TextAppearance.App.Body2</item>
+		<item name="textAppearanceButton">@style/TextAppearance.App.Button</item>
+		<item name="textAppearanceCaption">@style/TextAppearance.App.Caption</item>
+		<item name="textAppearanceSubtitle1">@style/TextAppearance.App.Subtitle1</item>
 	</style>
 
-	<!-- Tema da tela de splash -->
+	<!-- Tema da Splash -->
 	<style name="Maui.SplashTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
 		<item name="android:windowBackground">@drawable/maui_splash_image</item>
 	</style>
+
+	<!-- Estilos mínimos exigidos pelo Material -->
+	<style name="TextAppearance.App.Body1" parent="TextAppearance.MaterialComponents.Body1" />
+	<style name="TextAppearance.App.Body2" parent="TextAppearance.MaterialComponents.Body2" />
+	<style name="TextAppearance.App.Button" parent="TextAppearance.MaterialComponents.Button" />
+	<style name="TextAppearance.App.Caption" parent="TextAppearance.MaterialComponents.Caption" />
+	<style name="TextAppearance.App.Subtitle1" parent="TextAppearance.MaterialComponents.Subtitle1" />
 
 </resources>
