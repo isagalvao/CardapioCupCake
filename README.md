@@ -1,46 +1,59 @@
-# Cardápio CupCake
+# 🧁 Cardápio CupCake
 
-Projeto .NET MAUI para exibição e gerenciamento de um cardápio de cupcakes — app multiplataforma (Android / iOS / Windows).
+Projeto .NET MAUI para exibição e gerenciamento de um cardápio de cupcakes — app multiplataforma (Android / iOS).
 
-Descrição curta
---------------
-Aplicativo de exemplo para cadastrar, visualizar detalhes e adicionar cupcakes ao carrinho. Código organizado em MVVM com modelos, serviços e ViewModels prontos para evolução.
+## ✨ Descrição curta
+Aplicativo para cadastrar usuários, visualizar cupcakes, conferir detalhes e adicionar ao carrinho.  
+Organizado com arquitetura **MVVM**, perfeito para evolução.
 
-Screenshots (espaço reservado)
-------------------------------
-![Tela Login](assets/screenshots/home.png)  
-*Tela inicial / Login do usuário*
+---
 
-![Tela de Cadastro](assets/screenshots/home.png)  
-*Tela Cadastro / Cadastro incial*
+## 📸 Screenshots 
 
-![Tela Inicial](assets/screenshots/home.png)  
-*Tela inicial / lista de cupcakes*
+### Tela de Login
+![Tela Login](assets/screenshots/home.png)
 
-![Detalhes do Cupcake](assets/screenshots/detail.png)  
-*Detalhes do produto*
+### Tela de Cadastro
+![Tela de Cadastro](assets/screenshots/home.png)
 
-![Carrinho](assets/screenshots/cart.png)  
-*Carrinho de compras*
+### Tela Inicial / Lista de Cupcakes
+![Tela Inicial](assets/screenshots/home.png)
 
-![Perfil](assets/screenshots/cart.png)  
-*Perfil usuário*
+### Detalhes do Cupcake
+![Detalhes](assets/screenshots/detail.png)
 
+### Carrinho
+![Carrinho](assets/screenshots/cart.png)
 
-Principais funcionalidades
--------------------------
-- Cadastro do usuario
-- Login
-- Listagem de cupcakes 
-- Adição de itens ao carrinho
-- Páginas de detalhe e perfil
-- Estrutura MVVM compatível com .NET MAUI
+### Perfil
+![Perfil](assets/screenshots/cart.png)
 
-Requisitos
-----------
-- __Visual Studio 2022__ com workload de __.NET MAUI__
-- .NET 9 SDK instalado
-- Emuladores ou dispositivo físico para a plataforma alvo
+---
+
+## 🍰 Principais funcionalidades
+- Cadastro do usuário  
+- Login  
+- Listagem de cupcakes  
+- Adição de itens ao carrinho  
+- Página de detalhes  
+- Página de perfil  
+- Estrutura MVVM com .NET MAUI  
+
+---
+
+## 🛠️ Requisitos
+- Visual Studio 2022 com workload de **.NET MAUI**  
+- .NET 9 SDK instalado  
+- Emulador ou dispositivo físico (Android/iOS/Windows)  
+
+---
+
+## 🚀 Instalação e execução
+
+### 1. Clone o repositório
+
+git clone <url-do-repositorio>
+
 
 Instalação e execução
 ---------------------
