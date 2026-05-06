@@ -16,7 +16,7 @@ namespace CardapioCupCake.Core.Service
         {
             _httpClient = new HttpClient
             {
-                BaseAddress = new Uri("https://suaapi.com/") // 👉 coloque sua URL base aqui
+                BaseAddress = new Uri("https://minhaapi.com/") 
             };
         }
         public async Task<bool> LoginAsync(string email, string senha)
@@ -34,7 +34,6 @@ namespace CardapioCupCake.Core.Service
 
             if (response.IsSuccessStatusCode)
             {
-                // Você pode desserializar o token, se houver:
                 // var result = await response.Content.ReadFromJsonAsync<LoginResponse>();
                 return true;
             }
